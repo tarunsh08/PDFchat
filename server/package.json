@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "dev:worker": "node --watch worker.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@langchain/community": "^0.3.41",
+    "@langchain/core": "^0.3.49",
+    "@langchain/google-genai": "^0.2.5",
+    "@langchain/openai": "^0.5.7",
+    "@langchain/qdrant": "^0.1.2",
+    "bullmq": "^5.51.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "langchain": "^0.3.24",
+    "multer": "^1.4.5-lts.2",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.15.2"
+  }
+}
