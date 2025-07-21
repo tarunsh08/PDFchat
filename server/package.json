@@ -17,6 +17,7 @@
     "@langchain/qdrant": "^0.1.2",
     "bullmq": "^5.51.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.21.2",
     "langchain": "^0.3.24",
     "multer": "^1.4.5-lts.2",

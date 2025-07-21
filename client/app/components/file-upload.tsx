@@ -31,6 +31,7 @@ const FileUploadComponent: React.FC = () => {
       setUploadSuccess(true)
       setTimeout(() => setUploadSuccess(false), 3000)
     } catch (error) {
+      console.log(error)
       alert('Upload failed. Please try again.')
     } finally {
       setIsUploading(false)
@@ -44,6 +45,7 @@ const FileUploadComponent: React.FC = () => {
     el.addEventListener('change', (ev) => {
       if (el.files && el.files.length > 0) {
         handleFileUpload(el.files[0])
+        console.log(ev)
       }
     })
     el.click()

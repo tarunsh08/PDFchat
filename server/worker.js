@@ -1,8 +1,9 @@
 import { Worker } from "bullmq";
 import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
 import { QdrantVectorStore } from "@langchain/qdrant";
-import { Document } from "@langchain/core/documents";
 import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
+import dotenv from "dotenv";
+dotenv.config();
 
 const worker = new Worker(
     'file-upload-queue',
@@ -14,7 +15,7 @@ const worker = new Worker(
         const docs = await loader.load();
         
         const embeddings = new GoogleGenerativeAIEmbeddings({
-            apiKey: "AIzaSyD9SSfohPn-EODXUzs-Yminqyg4H1UBTuA", 
+            apiKey: process.env.GENAI_API_KEY, 
             model: "models/embedding-001" 
         });
           

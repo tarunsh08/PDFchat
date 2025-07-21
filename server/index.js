@@ -5,8 +5,11 @@ import { Queue } from 'bullmq';
 import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
 import { QdrantVectorStore } from "@langchain/qdrant";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import dotenv from "dotenv";
 
-const genAI = new GoogleGenerativeAI("AIzaSyD9SSfohPn-EODXUzs-Yminqyg4H1UBTuA");
+dotenv.config();
+
+const genAI = new GoogleGenerativeAI(process.env.GENAI_API_KEY);
 
 const queue = new Queue("file-upload-queue", {
     connection: {
@@ -48,7 +51,7 @@ app.get('/chat', async (req, res) => {
         const userQuery = req.query.message;
         
         const embeddings = new GoogleGenerativeAIEmbeddings({
-            apiKey: "AIzaSyD9SSfohPn-EODXUzs-Yminqyg4H1UBTuA",
+            apiKey: process.env.GENAI_API_KEY,
             model: "models/embedding-001"
         });
         const vectorStore = await QdrantVectorStore.fromExistingCollection(embeddings, {

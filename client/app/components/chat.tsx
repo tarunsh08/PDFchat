@@ -44,6 +44,7 @@ const ChatComponent: React.FC = () => {
         documents: data?.docs
       }])
     } catch (error) {
+      console.log(error)
       setMessages(prev => [...prev, {
         role: 'assistant', 
         content: "Sorry, I encountered an error. Please try again."
